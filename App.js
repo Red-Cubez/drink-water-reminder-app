@@ -11,8 +11,6 @@ import AdMob from './components/Admob';
 const height = Constants.height
 const width = Constants.width
 
-
-
 const App = () => {
 	const [connected, setConnected] = useState(false)
 	NetInfo.fetch().then(state => setConnected(state.isConnected))
