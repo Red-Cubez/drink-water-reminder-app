@@ -3,7 +3,8 @@ import { Dimensions, StatusBar } from 'react-native'
 let { height, width } = Dimensions.get('window')
 
 const colors = {
-    primary: 'black'
+    primary: 'black',
+    buttonPrimary: '#4e8aed'
 }
 
 const screenHeight = Dimensions.get('screen').height;
