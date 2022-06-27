@@ -5,6 +5,8 @@ import ButtonNavigation from '../../components/startScreenComponents/BottomNavig
 import Constants from '../../config/Constants'
 import SelectGender from './SelectGender'
 import SelectWeight from './SelectWeight';
+import SelectWakeupTime from './SelectWakeupTime';
+import SelectBedTime from './SelectBedTime';
 
 const height = Constants.height
 const width = Constants.width
@@ -13,7 +15,6 @@ const Screen2 = ({ navigation }) => {
     const [gender, setGender] = useState(true)
     const [weight, setWeight] = useState(gender ? '70' : '60')
     const [steps, setSteps] = useState(1)
-    console.log(steps);
     return (
         <View style={styles.container} >
             <View style={styles.progressView} >
@@ -23,9 +24,13 @@ const Screen2 = ({ navigation }) => {
                 {steps === 1 ? (
                     <SelectGender genderSelect={{ gender, setGender }} />
                 ) : steps === 2 ? (
-                    <SelectWeight weightSelect={{ weight, setWeight }} />
+                    <SelectWeight weightSelect={{ weight, setWeight }} genderSelect={{ gender, setGender }} />
+                ) : steps === 3 ? (
+                    <SelectWakeupTime weightSelect={{ weight, setWeight }} genderSelect={{ gender, setGender }} />
+                ) : steps === 4 ? (
+                    <SelectBedTime weightSelect={{ weight, setWeight }} genderSelect={{ gender, setGender }} />
                 ) : (
-                    <></>
+                    <>{navigation.navigate('Screen3')}</>
                 )}
             </View>
             <View style={styles.bottomView} >
@@ -39,18 +44,18 @@ export default Screen2
 
 const styles = StyleSheet.create({
     container: {
-        height: height * 0.9,
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center'
     },
     progressView: {
-        height: height * 0.15,
+        height: '15%',
         width: width,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     centerView: {
-        height: height * 0.6,
+        height: '70%',
         width: width,
         alignItems: 'center',
     },
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     bottomView: {
-        height: height * 0.15,
+        height: '15%',
         justifyContent: 'center',
         alignItems: 'center',
         width: width,

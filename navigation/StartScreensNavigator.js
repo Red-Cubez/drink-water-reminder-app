@@ -7,6 +7,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Screen1 from "../screens/startScreens/Screen1";
 import Screen2 from './../screens/startScreens/Screen2';
+import Screen3 from './../screens/startScreens/Screen3';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +28,35 @@ function StartScreensNavigator({ navigation }) {
                     headerShown: false,
                 }}
             />
+            <Stack.Screen
+                name="Screen3"
+                component={Screen3}
+                options={{
+                    headerShown: false,
+                }}
+            />
+            <Stack.Screen
+                name="DashboardScreenStack"
+                component={AppScreensStack}
+                options={{
+                    headerShown: false,
+                }}
+            />
+
         </Stack.Navigator>
     );
 }
 
-export default StartScreensNavigator;
+function AppScreensStack({ navigation }) {
+    <Stack.Navigator initialRouteName="DashboardScreenStack">
+        <Stack.Screen
+            name="DashboardScreenStack"
+            component={ }
+            options={{
+                headerShown: false,
+            }}
+        />
+    </Stack.Navigator>
+}
+
+export default { StartScreensNavigator, AppScreensStack };

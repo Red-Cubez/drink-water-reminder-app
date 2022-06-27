@@ -4,7 +4,8 @@ let { height, width } = Dimensions.get('window')
 
 const colors = {
     primary: 'black',
-    buttonPrimary: '#4e8aed'
+    buttonPrimary: '#4e8aed',
+    backgroundGrey: '#EBECF0'
 }
 
 const screenHeight = Dimensions.get('screen').height;

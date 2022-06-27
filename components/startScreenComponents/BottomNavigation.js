@@ -9,7 +9,6 @@ const colors = Constants.colors
 
 const BottomNavigation = ({ navigation, stage }) => {
     const { steps, setSteps } = stage
-    console.log(steps);
     return (
         <View style={styles.container} >
             <View style={styles.navigationButtons} >
